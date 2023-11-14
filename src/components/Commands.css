@@ -1,0 +1,30 @@
+h5 {
+    font-size: 30px; /* 글씨 크기를 30px로 설정 */
+  }
+
+.btn {
+    padding: 20px 40px; /* 버튼 내부의 여백을 설정. 상하 20px, 좌우 40px */
+    font-size: 15px; /* 글씨 크기를 20px로 설정 */
+    margin: 10px; /* 버튼 주변의 여백을 설정. 모든 방향으로 10px */
+  }
+  
+  .commands {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .horizontal-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }

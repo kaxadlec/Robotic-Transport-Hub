@@ -1,5 +1,20 @@
 .App {
   text-align: center;
+  background-color: rgb(41, 45, 54);
+  color: #ffffff; /* 텍스트 색상을 흰색으로 설정 */
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  padding-top: 30px; 
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 
 .App-logo {
@@ -21,7 +36,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(242, 22, 22);
 }
 
 .App-link {
@@ -35,4 +50,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px; /* 왼쪽 마진을 220px로 설정 */
+  margin-top: 23px;
+}
+
+.Commands {
+  margin-right: 300px; /* 오른쪽 외부 여백을 220px로 설정 */
+  margin-bottom: 20px; /* 아래쪽 마진을 20px로 설정 */
+}
+
+.connection-status {
+  font-size: 30px; /* 글씨 크기를 30px로 설정 */
+}
+
+
+.connection-button {
+  width: 100px; /* 버튼의 너비를 100px로 설정 */
+  height: 40px; /* 버튼의 높이를 30px로 설정 */
+  padding: 10px 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-image {
+  margin-right: 20px; /* 이미지와 텍스트 사이의 간격을 조절 */
+  width: 280px;
+  height: auto;
 }
