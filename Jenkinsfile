@@ -1,22 +1,19 @@
 pipeline {
     agent {
         docker {
-            image 'node:18'  // Node.js 18 버전 이미지
-            args '-v /var/run/docker.sock:/var/run/docker.sock'  // Docker-in-Docker를 위해 필요
+            image 'node:18'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
-
     environment {
-        // GIT_URL = 'https://github.com/himang10/tekton-source.git'
         GIT_URL = 'https://github.com/kaxadlec/Robotic-Transport-Hub.git'
-        GIT_BRANCH = 'master' // 또는 master
-        GIT_ID = 'skala-github-id' // GitHub PAT credential ID
+        GIT_BRANCH = 'master'
+        GIT_ID = 'skala-github-id'
         IMAGE_REGISTRY = 'amdp-registry.skala-ai.com/skala25a'
-        // IMAGE_NAME = 'sk000-my-app'
         IMAGE_NAME = 'sk017-my-app'
         IMAGE_TAG = '1.0.0'
-        DOCKER_CREDENTIAL_ID = 'skala-image-registry-id'  // Harbor 인증 정보 ID
+        DOCKER_CREDENTIAL_ID = 'skala-image-registry-id'
     }
 
     stages {
@@ -24,15 +21,10 @@ pipeline {
             steps {
                 git branch: "${GIT_BRANCH}",
                     url: "${GIT_URL}",
-                    credentialsId: "${GIT_ID}"   // GitHub PAT credential ID
+                    credentialsId: "${GIT_ID}"
             }
         }
 
-        // stage('Build with Maven') {
-        //     steps {
-        //         sh 'mvn clean package -DskipTests'
-        //     }
-        // }
         stage('Build React App') {
             steps {
                 sh '''
@@ -44,7 +36,7 @@ pipeline {
         }
 
         stage('Docker Build & Push') {
-            agent { any }
+            agent { any }   // **정확한 문법**
             steps {
                 script {
                     docker.withRegistry("https://${IMAGE_REGISTRY}", "${DOCKER_CREDENTIAL_ID}") {
@@ -65,4 +57,3 @@ pipeline {
         }
     }
 }
-
