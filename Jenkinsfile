@@ -36,8 +36,9 @@ pipeline {
         stage('Build React App') {
             steps {
                 sh '''
-                    npm install
-                    npm run build
+                    npm install --save-dev @babel/plugin-proposal-private-property-in-object
+                    npx update-browserslist-db@latest
+                    CI=false npm run build
                 '''
             }
         }
