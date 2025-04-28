@@ -12,7 +12,7 @@ FROM nginx:stable-alpine
 # Add our custom nginx config
 COPY default.conf /etc/nginx/conf.d/
 
-COPY --from=build-stage /app/dist /etc/nginx/html
+COPY --from=build-stage /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
