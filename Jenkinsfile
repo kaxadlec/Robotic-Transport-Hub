@@ -36,9 +36,6 @@ pipeline {
         }
 
         stage('Docker Build & Push') {
-            agent {
-                any
-            }
             steps {
                 script {
                     docker.withRegistry("https://${IMAGE_REGISTRY}", "${DOCKER_CREDENTIAL_ID}") {
