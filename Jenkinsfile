@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18'  // Node.js 18 버전 이미지
+            args '-v /var/run/docker.sock:/var/run/docker.sock'  // Docker-in-Docker를 위해 필요
+        }
+    }
+
 
     environment {
         // GIT_URL = 'https://github.com/himang10/tekton-source.git'
@@ -31,7 +37,7 @@ pipeline {
             steps {
                 sh '''
                     npm install
-                    npm run build
+                    npm start
                 '''
             }
         }
