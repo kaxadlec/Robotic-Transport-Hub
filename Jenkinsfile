@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh '''
                     npm install
-                    npm start
+                    npm run build
                 '''
             }
         }
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 sh '''
                     kubectl apply -f ./k8s
-                    kubectl rollout status deployment/sk000-my-app
+                    kubectl rollout status deployment/sk017-my-app
                 '''
             }
         }

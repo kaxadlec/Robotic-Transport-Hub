@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sk017-my-app
+  labels:
+    app: sk017-my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sk017-my-app
+  template:
+    metadata:
+      labels:
+        app: sk017-my-app
+    spec:
+      containers:
+        - name: sk017-my-app
+          image: amdp-registry.skala-ai.com/skala25a/sk017-my-app:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
