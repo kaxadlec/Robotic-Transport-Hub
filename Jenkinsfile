@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
 
     environment {
         GIT_URL = 'https://github.com/kaxadlec/Robotic-Transport-Hub.git'
@@ -26,6 +21,12 @@ pipeline {
         }
 
         stage('Build React App') {
+            agent {
+                docker {
+                    image 'node:20'
+                    reuseNode true
+                }
+            }
             steps {
                 sh '''
                     npm install --save-dev @babel/plugin-proposal-private-property-in-object
