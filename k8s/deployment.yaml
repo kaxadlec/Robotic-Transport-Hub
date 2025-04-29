@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: sk017-my-app
-          image: amdp-registry.skala-ai.com/skala25a/sk017-my-app:1.0.0
+          # image: amdp-registry.skala-ai.com/skala25a/sk017-my-app:1.0.0
+          image: amdp-registry.skala-ai.com/skala25a/sk017-my-app@sha256:252be5e91d798b37499aa35ddf5b6abf15729073b800e7222f2d23052c48704f
           imagePullPolicy: Always
           ports:
             - containerPort: 80
